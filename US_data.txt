@@ -1,0 +1,15 @@
+Country Name|Birth rate|Internet users
+Aruba|10.24|78.9
+Afghanistan|35.25|5.9
+Angola|45.98|19.1
+Albania|12.87|57.2
+United Arab Emirates|11.04|88
+Argentina|17.71|59.9
+Armenia|13.30|41.9
+Antigua and Barbuda|16.44|63.4
+Australia|13.2|83
+Austria|9.4|80.61
+Azerbaijan|18.3|58.7
+Burundi|44.15|1.3
+Belgium|11.2|82.17
+Benin|36.44|4.9
