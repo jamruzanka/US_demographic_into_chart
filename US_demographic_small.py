@@ -2,18 +2,18 @@ from openpyxl import Workbook
 from openpyxl.chart import Reference, Series, BarChart
 
 class DataCharts(object):
-    #to create an object, provide a txt's file name (existing one) and then the xlsx file (which will be created)
+    #To create an object, provide a txt's file name (existing one) and then the xlsx file (which will be created).
     def __init__(self, txt_file, excel_file_name):
         self.txt_file = txt_file
         self.excel_file_name = excel_file_name
 
     def txt_to_excel(self, split_symbol):
-    # #to convert a txt file into a xlsx file, provide a split symbol used in the txt file - could be ",", "|" etc.
+    #To convert a txt file into a xlsx file, provide a split symbol used in the txt file - could be ",", "|" etc.
         self.excel_file = Workbook()
         ws1 = self.excel_file.active
 
         file = open(self.txt_file, 'r')
-        #provided letters for 12 columns now - if there is more columns, please add further letters as they appear in excel
+        #Provided letters are for 12 columns now - if there is more columns, please add further letters as they appear in excel
         column_letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"]
         row_number = 0
         column_number = 0
@@ -46,7 +46,8 @@ class DataCharts(object):
 
 first_chart = DataCharts("US_data.txt", "US_data_class_script.xlsx")
 first_chart.txt_to_excel("|")
-#anchor_cell is the cell where the chart will be created - top left corner
-#the arguments after the anchor_cell indicate the data that will be used to create a chart:
-#data_min_col is the minimum column, data_min_row is the minimum row etc.). Without them, the script won't know which data should he visualize in the chart.
+#Anchor_cell is the cell where the chart will be created (it's top left corner).
+#The arguments after the anchor_cell indicate the data that will be used to create a chart:
+#data_min_col is the minimum column, data_min_row is the minimum row etc.).
+#Without them, the script won't know which data should he visualize in the chart.
 first_chart.create_chart("Birth and Internet", "H4", 2, 1, 3, 15, 1, 2, 15)
