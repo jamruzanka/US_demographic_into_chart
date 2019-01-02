@@ -9,8 +9,8 @@ class DataCharts(object):
 
     def txt_to_excel(self, split_symbol):
     #To convert a txt file into a xlsx file, provide a split symbol used in the txt file - could be ",", "|" etc.
-        self.excel_file = Workbook()
-        ws1 = self.excel_file.active
+        self.workbook = Workbook()
+        ws1 = self.workbook.active
 
         file = open(self.txt_file, 'r')
         #Provided letters are for 12 columns now - if there is more columns, please add further letters as they appear in excel
@@ -29,10 +29,10 @@ class DataCharts(object):
                     column_number += 1
                 row_number += 1
                 column_number = 0
-        self.excel_file.save(self.excel_file_name)
+        self.workbook.save(self.excel_file_name)
 
     def create_chart(self, chart_title, anchor_cell, data_min_col, data_min_row, data_max_col, data_max_row, ref_min_col, ref_min_row, ref_max_row):
-        ws1 = self.excel_file.active
+        ws1 = self.workbook.active
         data = Reference(ws1, min_col = data_min_col, min_row = data_min_row, max_col = data_max_col, max_row = data_max_row)
         titles = Reference(ws1, min_col = ref_min_col, min_row = ref_min_row, max_row = ref_max_row)
         chart = BarChart()
@@ -42,7 +42,7 @@ class DataCharts(object):
 
         ws1.add_chart(chart, anchor_cell)
 
-        self.excel_file.save(self.excel_file_name)
+        self.workbook.save(self.excel_file_name)
 
 first_chart = DataCharts("US_data.txt", "US_data_class_script.xlsx")
 first_chart.txt_to_excel("|")
